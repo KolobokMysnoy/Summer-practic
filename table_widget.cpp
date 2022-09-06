@@ -249,12 +249,13 @@ void Table_widget::delete_line()
     QList <QLineEdit*> lines=this->findChildren<QLineEdit*>();
     QList <QSpinBox*> spins=findChildren<QSpinBox*>();
 
-    int i=lines.count()-2;
-    delete lines[i];
-    delete lines[i-1];
-    delete lines[i-2];
-    delete spins[spins.count()-1];
-
+    if(lines.count()!=0){
+        int i=lines.count()-2;
+        delete lines[i];
+        delete lines[i-1];
+        delete lines[i-2];
+        delete spins[spins.count()-1];
+    }
 }
 
 Table_widget::~Table_widget(){

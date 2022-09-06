@@ -1,7 +1,5 @@
 #ifndef EDGE_H
 #define EDGE_H
-
-
 #include <QGraphicsItem>
 
 class Node;
@@ -21,16 +19,17 @@ public:
 
     QPointF middle();
 
-    QRectF boundingRect() const override;
 protected:
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 private:
     QPointF centre(QPointF c1,int k);
-    Node *source, *dest;
 
+    Node *source, *dest;
     QPointF sourcePoint;
     QPointF destPoint;
+
     qreal arrowSize = 10;
 };
 

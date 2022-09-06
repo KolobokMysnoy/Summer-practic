@@ -17,7 +17,7 @@ public:
     Graphwindow();
     ~Graphwindow();
 
-    //files
+    //add graph or save
     void add_existing();
     void save();
 

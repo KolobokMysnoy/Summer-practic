@@ -13,7 +13,9 @@ public:
     Node(GraphWidget *graphWidget);
     ~Node();
 
-    //edges
+    //add or remove edge
+    //and get all edges connected to
+    //node
     void addEdge(Edge *edge);
     void removeEdge(Edge *edge);
     QList<Edge *> edges() const;
@@ -25,17 +27,20 @@ public:
     void set_name(QString name);
     QString get_name();
 
+    //repaint item to new position
     bool advance();
     void calculateForces();
 
-    QRectF boundingRect() const;
+protected:
+    //shape of node and paint this node
     QPainterPath shape() const;
+    QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-protected:
+    //item change position
     QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 
-    //добавление действий мышкой(нажатие и отпускание)
+    //when transfer node with mouse
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 

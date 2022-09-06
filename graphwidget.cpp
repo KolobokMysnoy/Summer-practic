@@ -97,12 +97,6 @@ void GraphWidget::wheelEvent(QWheelEvent *event)
 
 #endif
 
-
-void GraphWidget::drawBackground(QPainter *painter, const QRectF &rect)
-{
-    Q_UNUSED(rect);
-}
-
 void GraphWidget::scaleView(qreal scaleFactor)
 {
     qreal factor = transform().scale(scaleFactor, scaleFactor).mapRect(QRectF(0, 0, 1, 1)).width();

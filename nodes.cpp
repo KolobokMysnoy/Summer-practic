@@ -40,8 +40,6 @@ void Node::removeEdge(Edge *edge)
 
  void Node::calculateForces()
  {
-
-     //проверка на выполнение метода
      if (!scene() || scene()->mouseGrabberItem() == this) {
          newPos = pos();
          return;

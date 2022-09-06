@@ -19,10 +19,11 @@ public:
     enum { Type = UserType + 3 };
     int type() const override { return Type; }
 
-    QRectF boundingRect() const override;
 protected:
-
+    //paint
+    QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
 private:
     Edge *where;
     QString value;

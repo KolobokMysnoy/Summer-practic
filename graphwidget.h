@@ -13,28 +13,34 @@ class GraphWidget : public QGraphicsView
 public:
     GraphWidget(QWidget *parent = nullptr);        
 
+    //create a timer to transfer edge
     void itemMoved();
 
-    //flags
+    //set flags to delete or add node or edge
+    // and clear all flags
     void set_edge_flag();
     void set_node_flag();
     void set_Dnode_flag();
     void set_Dedge_flag();
     void clear_flags();
 
+    //set a value to give it to new edge or
+    // node
     void set_value(QString val);
 
-    //files
+    //add existing graph from list of strings or
+    //give our graph in list of strings
     void add_existing(QList <QString> list);
     QList<QString> save();
+
+    //clear all graphic items
     void clear_area();
 
 public slots:
     void shuffle();
     void zoomIn();
     void zoomOut();
-    void mousePressEvent(QMouseEvent * mouseEvent);
-
+    void mousePressEvent(QMouseEvent * mouseEvent) override;
 
 protected:
 
@@ -45,7 +51,6 @@ protected:
     void wheelEvent(QWheelEvent *event) override;
 #endif
 
-    void drawBackground(QPainter *painter, const QRectF &rect) override;
     void scaleView(qreal scaleFactor);
 
 private:
@@ -53,8 +58,11 @@ private:
     int timerId = 0;
     QString value;
 
-    Node* from,* to;
     QGraphicsScene *scene;
+
+    //from which node to which node
+    //add edge
+    Node* from,* to;
 };
 
 #endif // GRAPHWIDGET_H
